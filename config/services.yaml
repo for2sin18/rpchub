@@ -1,0 +1,27 @@
+# Registered services for the hub.
+services:
+  - name: blog
+    module: backend.services.blog.service
+    config:
+      host: 127.0.0.1
+      port: 5001
+      database_url: sqlite:///blog.db
+      permissions:
+        - public
+        - editor
+  - name: comments
+    module: backend.services.comments.service
+    config:
+      host: 127.0.0.1
+      port: 5002
+      database_url: sqlite:///comments.db
+      permissions:
+        - public
+  - name: database
+    module: backend.services.database.service
+    config:
+      host: 127.0.0.1
+      port: 5003
+      database_url: postgresql://user:pass@db:5432/core
+      permissions:
+        - admin
